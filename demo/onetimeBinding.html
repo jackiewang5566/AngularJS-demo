@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Onetime Binding</title>
+</head>
+<body ng-app="onetimebinding">
+    <div ng-controller="EventCtrl">
+    	<button ng-click="clickme($event)">Click me</button>
+    	<p id="one-time-binding-example">One time binding:{{::name}}</p>
+    	<p id="normal-binding-example">Normal binding:{{name}}</p>
+    </div>
+
+    <script src="source/angular.js"></script>
+    <script>
+    	angular.module('onetimebinding',[])
+    	.controller('EventCtrl', ['$scope', function($scope){
+    		var counter=0;
+    		var names=['Candice','Miranda','Behati','Alexandra'];
+    		$scope.clickme=function(clickEvent){
+    			$scope.name=names[counter%names.length];
+    			counter++;
+    		}
+    	}])
+    </script>
+</body>
+</html>

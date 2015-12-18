@@ -1,0 +1,21 @@
+{
+	"type": "Collection",
+	"properties": {
+		"Account": {
+			"name": "Account",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "Account",
+			"order": 0
+		},
+		"Password": {
+			"name": "Password",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "Password",
+			"order": 1
+		}
+	}
+}
