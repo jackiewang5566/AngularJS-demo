@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>SEPTA Regional Rail Fare Calculator</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="Ctrl">
+	<div id="fc-main">
+		<div id="fc-header">
+			<div class="headercontent">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/SEPTA.svg">
+			</div>
+			<div class="headercontent">
+				<p>Regional Rail Fares</p>
+			</div>
+		</div>
+		<div id="fc-destination">
+			<div id="dest-select">
+				<p>Where are you going?</p>
+				<select ng-options="item for item in destinations" ng-model="destination">
+					<option value="">Please choose the area</option>
+				</select>
+			</div>
+		</div>
+		<div id="timetobuy">
+			<div id="time-select">
+				<p>When are you riding?</p>
+				<select ng-options="item for item in startTime" ng-model="begin">
+					<option value="">Please choose the starting time</option>
+				</select>
+			</div>
+			<div id="explaination">
+				<p>{{helperInfo}}</p>
+			</div>
+		</div>
+		<div id="placetobuy">
+			<p>Where will you purchase the fare?</p>
+			<div id="purchase_place">
+				<div>
+					<input type="radio" ng-model="placeToBuy" value="advance_purchase">Station Kiosk 
+					<br>
+					<input type="radio" ng-model="placeToBuy" value="onboard_purchase">On board
+				</div>		
+			</div>
+		</div>
+		<div id="numbers">
+			<div id="tickets">
+				<p>How many rides will you need?</p>	
+				<input type="text" ng-model="rideNum">
+			</div>
+		</div>
+		<div id="totalprice">
+			<div>
+				<p>
+					Your fare will cost: <br>{{totalPrice() | currency}}
+				</p>
+			</div>
+		</div>
+	</div>
+	
+    <script src="angular-1.4.7/angular.js"></script>
+    <script src="controller/controller.js"></script>
+</body>
+</html>

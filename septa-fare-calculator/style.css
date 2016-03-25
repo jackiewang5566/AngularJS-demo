@@ -1,0 +1,115 @@
+#fc-main{
+	margin: 0 auto;
+	padding: 0;
+	width: 25%;
+	border: 2px solid #cccccc;
+}
+
+#fc-header{
+	width: 100%;
+	background-color: #8a8a8a;
+	color: white;
+	display: table;
+}
+
+.headercontent{
+	margin: 0 auto;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.headercontent img{
+	width: 35px;
+	height: 23px;
+	float: right;
+}
+
+.headercontent p{
+	position: relative;
+	left: -10%;
+}
+
+#fc-destination{
+	width: 100%;
+	text-align: center;
+	color: #4a4a4a;
+	border-bottom: 1px solid #cccccc;
+}
+
+#dest-select{
+	border-radius: 5px;
+	margin: 0 auto;
+	width: 70%;
+	margin-bottom: 10px;
+}
+
+#dest-select select{
+	width: 100%;
+}
+
+#timetobuy{
+	text-align: center;
+	color: #4a4a4a;
+	border-bottom: 1px solid #cccccc;
+}
+
+#time-select{
+	margin: 0 auto;
+	width: 70%;
+	margin-bottom: 10px;
+}
+
+#time-select select{
+	width: 100%;
+}
+
+#explaination{
+	font-size: 5%;
+}
+
+#placetobuy{
+	color: #4a4a4a;
+	border-bottom: 1px solid #cccccc;
+	text-align: center;
+}
+
+#purchase_place{
+	margin-bottom: 10px;
+}
+
+#purchase_place div {
+	width: 50%;
+	text-align: left;
+	margin: auto;
+}
+
+#numbers{
+	text-align: center;
+	color: #4a4a4a;
+}
+
+#tickets{
+	margin: 0 auto;
+	width: 70%;
+	margin-bottom: 10px;
+}
+
+#tickets input{
+	width: 100%;
+}
+
+#totalprice{
+	background-color: #595959;
+	color: white;
+	text-align: center;
+}
+
+#totalprice div{
+	padding: 10px 0;
+}
+
+#totalprice p{
+	margin: 0;
+}
+
