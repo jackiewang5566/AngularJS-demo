@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Submit small demo</title>
+	<link rel="stylesheet" href="source/bootstrap.css">
+</head>
+<body ng-controller="appCtrl">
+	<div class="panel panel-default">
+		<div class="form-group">
+			<label>Account:</label>
+			<input type="text" class="form-control" ng-model="account">
+		</div>
+		<div class="form-group">
+			<label>Password:</label>
+			<input type="password" class="form-control" ng-model="password">
+		</div>
+		<button class="btn" ng-click="cancel()">Cancel</button>
+		<button class="btn btn-primary" ng-click="submit(account,password)">Submit</button>
+
+	</div>
+	
+	<script src="source/angular.js"></script>    
+	<script>
+		angular.module("app",[])
+		.controller('appCtrl', ['$scope','$http', function($scope,$http){
+			$scope.user={};
+
+			$scope.cancel=function(){
+				$scope.account="";
+				$scope.password="";
+			};
+
+			$scope.submit=function(account,password){
+				$scope.user.Account=account;
+				$scope.user.Password=password;
+				$http.post("http://localhost:5500/info",$scope.user).success(function(data){
+					console.log(data);
+				});
+			};
+		}])
+	</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="sportsStore">
+<head>
+	<title>SportsStore demo</title>
+	<link rel="stylesheet" href="source/bootstrap.css">
+	<link rel="stylesheet" href="source/bootstrap-theme.css">
+</head>
+<body ng-controller="sportsStoreCtrl">
+    <div class="navbar navbar-inverse">
+    	<a href="#" class="navbar-brand">Sports Store</a>
+    	<cart-summary />
+    </div>
+	
+	<div class="alert alert-danger" ng-show="data.error">
+		Error({{data.error.status}}). The product data was not loaded.
+		<a href="/app.html" class="alert-link">Click here to try again.</a>
+	</div>
+	
+	<ng-view />
+	<!-- <ng-include	src="'views/productList.html'"></ng-include> -->
+	<!-- when using the ng-include directive, I specified the name of the file as a literal value in single quotes. If I had not done this, then the directive would look for a scope property to get the name of the file. -->
+
+    <script src="source/angular.js"></script>
+    <script>
+    	angular.module("sportsStore",["customFilters","cart","ngRoute"])
+    	.config(function($routeProvider) {
+    		$routeProvider.when("/complete",{
+    			templateUrl:"/views/thankYou.html"
+    		});
+    		$routeProvider.when("/placeorder",{
+    			templateUrl:"/views/placeOrder.html"
+    		});
+    		$routeProvider.when("/checkout",{
+    			templateUrl:"views/checkoutSummary.html"
+    		});
+    		$routeProvider.when("/products",{
+    			templateUrl:"views/productList.html"
+    		});
+    		$routeProvider.otherwise({
+    			templateUrl:"views/productList.html"
+    		})
+    	})
+    </script>
+    <script src="controllers/sportsStore.js"></script>
+    <script src="filters/customFilters.js"></script>
+    <script src="controllers/productListControllers.js"></script>
+    <script src="components/cart/cart.js"></script>
+    <script src="ngmodules/angular-route.js"></script>
+    <script src="controllers/checkoutControllers.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="ui.bootstrap.demo">
+<head>
+	<title>AngularUI Bootstrap Dropdown Examples</title>
+    <link rel="stylesheet" href="source/bootstrap.css">
+</head>
+<body ng-controller="DropdownCtrl">
+    <div>
+        <!-- Single button dropdown menu-->      
+        <div class="btn-group" uib-dropdown >
+            <button class="btn btn-primary" uib-dropdown-toggle>
+                Button dropdown
+                <span class="caret"></span>
+            </button>
+            <ul class="uib-dropdown-menu">
+                <li>
+                    <a href="http://www.google.com">Google</a>
+                </li>
+                <li>
+                    <a href="http://www.yahoo.com">Yahoo</a>
+                </li>
+                <li>
+                    <a href="#">Something else here</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">Separated link</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script src="../source/bower_components/angular/angular.js"></script>
+    <script src="../source/angular-1.4.7/angular-animate.min.js"></script>
+    <script src="../source/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="../source/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+    <script>
+        angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap']);
+        angular.module('ui.bootstrap.demo').controller('DropdownCtrl', function($scope, $log) {
+            $scope.items = [
+                'The first choice!',
+                'And another choice for you.',
+                'but wait! A third!'
+            ];
+
+            $scope.status = {
+                isopen: false
+            };
+
+            $scope.toggled = function(open) {
+                $log.log('Dropdown is now: ', open);
+            };
+
+            $scope.toggleDropdown = function($event) {
+                $event.preventDefault();
+                $event.stopPropagation();
+                $scope.status.isopen = !$scope.status.isopen;
+            };
+        });
+    </script>
+</body>
+</html>
